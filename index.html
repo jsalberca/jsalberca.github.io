@@ -16,24 +16,29 @@
     }
 
     html, body {
-      height: 100%;
-      background: radial-gradient(ellipse at bottom, #1a0033, #0e001a);
-      font-family: 'Inter', sans-serif;
-      color: #fff;
-      overflow-x: hidden;
-    }
+  min-height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1a0033, #0e001a);
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
 
     body::before {
-      content: '';
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 30% 30%, rgba(255, 0, 255, 0.05), transparent 60%),
-                  radial-gradient(circle at 70% 60%, rgba(0, 255, 255, 0.04), transparent 60%),
-                  repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 4px);
-      animation: driftBg 60s linear infinite;
-      z-index: 0;
-    }
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 0, 255, 0.05), transparent 60%),
+              radial-gradient(circle at 70% 60%, rgba(0, 255, 255, 0.04), transparent 60%);
+  animation: driftBg 60s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
 
     @keyframes driftBg {
       0% { transform: translate(0, 0); }
@@ -222,9 +227,45 @@
     50% { transform: translateY(-20px) scale(1.2); opacity: 0.35; }
   }
 
+  .cloud {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.02), transparent 70%);
+    border-radius: 50%;
+    filter: blur(30px);
+    animation: cloudDrift 80s linear infinite;
+    z-index: 0;
+  }
+  .cloud:nth-child(1) { top: 20%; left: -10%; animation-delay: 0s; }
+  .cloud:nth-child(2) { top: 50%; left: 110%; animation-delay: 40s; }
+
+  .fog-layer {
+    position: absolute;
+    width: 200vw;
+    height: 100vh;
+    background: linear-gradient(to right, rgba(168,85,247,0.015), rgba(0,0,0,0));
+    animation: fogMove 60s linear infinite;
+    z-index: 1;
+    opacity: 0.4;
+  }
+
+  @keyframes cloudDrift {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(200%); }
+  }
+
+  @keyframes fogMove {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+  }
+
 </style>
 </head>
 <body>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+  <div class="fog-layer"></div>
   <div class="glow-orb"></div>
   <div class="glow-orb"></div>
   <div class="glow-orb"></div>
@@ -240,10 +281,17 @@
       <a href="https://youtube.com/@xuhnndottt"><i class="fab fa-youtube"></i><div class="handle">xuhnndottt</div></a>
     </div>
 
-    <div class="referral">
-      <img src="drip-logo.png" alt="Drip Logo" style="width: 120px; margin-bottom: 1rem; animation: pulse 2s infinite ease-in-out;" />
-      <h2>drip or drown.</h2>
-      <a href="https://getd.rip/dot">start dripping</a>
+    <div class="discord-invite" style="margin-top: 3rem; padding: 1.2rem 2rem; background: rgba(255,255,255,0.02); border: 1px solid #a855f7; border-radius: 16px; box-shadow: 0 0 20px #9333ea; backdrop-filter: blur(6px); animation: pulse 3s infinite ease-in-out;">
+  <h2 style="font-size: 1.3rem; background: linear-gradient(to right, #a855f7, #9333ea); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem;">Join my Discord</h2>
+  <a href="https://discord.gg/your-server-code" target="_blank" style="display: inline-block; padding: 0.5rem 1.5rem; background: #9333ea; color: white; border-radius: 12px; text-decoration: none; font-weight: bold; transition: 0.3s ease;">Enter Server</a>
+</div>
+
+<div class="referral" style="margin-top: 3rem; padding: 2rem; background: linear-gradient(145deg, rgba(90, 35, 135, 0.2), rgba(40, 0, 80, 0.2)); border: 2px solid #a855f7; border-radius: 24px; box-shadow: 0 0 30px #9333ea, inset 0 0 20px rgba(168, 85, 247, 0.3); backdrop-filter: blur(12px); position: relative; overflow: hidden; animation: pulse 4s infinite ease-in-out;">
+  <div class="referral-orb" style="position: absolute; width: 120px; height: 120px; background: radial-gradient(circle, #a855f7, transparent); top: -30px; left: -30px; border-radius: 50%; filter: blur(40px); opacity: 0.5;"></div>
+  <img src="drip-logo.png" alt="Drip Logo" style="width: 120px; margin-bottom: 1rem; animation: pulse 2s infinite ease-in-out;" />
+  <h2 style="font-size: 1.6rem; background: linear-gradient(to right, #a855f7, #9333ea); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">drip or drown.</h2>
+  <a href="https://getd.rip/dot" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1.5rem; background: #9333ea; color: white; border-radius: 12px; text-decoration: none; font-weight: bold; transition: 0.3s ease; box-shadow: 0 0 10px #a855f7;">start dripping</a>
+</div>
     </div>
   </div>
 

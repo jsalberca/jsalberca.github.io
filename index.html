@@ -9,7 +9,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
@@ -26,29 +26,13 @@
       50% { background-position: center bottom; }
     }
 
-    #stars, #shooting-stars, #meteors, #clouds {
+    #stars, #shooting-stars, #meteors {
       position: absolute;
       width: 100%;
       height: 100%;
       overflow: hidden;
       z-index: 0;
       pointer-events: none;
-    }
-
-    #clouds::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://i.ibb.co/WGJ1PZn/clouds-transparent.png') repeat-x;
-      animation: cloudsMove 60s linear infinite;
-      opacity: 0.04;
-    }
-
-    @keyframes cloudsMove {
-      0% { background-position: 0 0; }
-      100% { background-position: 2000px 0; }
     }
 
     .star {
@@ -82,18 +66,9 @@
     }
 
     @keyframes explode {
-      0% {
-        transform: translateY(-50px) scale(0);
-        opacity: 0;
-      }
-      20% {
-        opacity: 1;
-        transform: scale(1.5);
-      }
-      100% {
-        transform: translateY(500px) scale(0);
-        opacity: 0;
-      }
+      0% { transform: translateY(-50px) scale(0); opacity: 0; }
+      20% { opacity: 1; transform: scale(1.5); }
+      100% { transform: translateY(500px) scale(0); opacity: 0; }
     }
 
     @keyframes twinkle {
@@ -118,10 +93,11 @@
       justify-content: center;
       padding: 2rem;
       transform-style: preserve-3d;
+      animation: fadeIn 2s ease-in-out;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       background: linear-gradient(90deg, #d946ef, #9333ea);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -135,64 +111,61 @@
     }
 
     p.tagline {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #c9c9c9;
       margin-bottom: 2rem;
-      animation: fadeIn 3s ease-in-out;
     }
 
     .socials {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.5rem;
       margin-top: 1rem;
-      animation: fadeIn 3s ease-in-out;
     }
 
     .socials a {
       color: #fff;
-      font-size: 2rem;
+      font-size: 1.8rem;
       transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
       text-decoration: none;
       display: flex;
       flex-direction: column;
       align-items: center;
-      animation: fadeIn 4s ease-in-out;
     }
 
     .socials a:hover {
-      transform: scale(1.2);
+      transform: scale(1.15);
       color: #d946ef;
       text-shadow: 0 0 10px #a855f7, 0 0 20px #9333ea;
     }
 
     .handle {
-      font-size: 1rem;
+      font-size: 0.9rem;
       margin-top: 0.2rem;
       color: #c0c0c0;
     }
 
     .referral {
-      margin-top: 3rem;
+      margin-top: 2.5rem;
       background: linear-gradient(to right, #2d0a55, #1a0033);
-      padding: 2rem 3rem;
+      padding: 1.5rem 2rem;
       border-radius: 16px;
       box-shadow: 0 0 40px rgba(168, 85, 247, 0.8);
       text-align: center;
-      max-width: 480px;
-      animation: fadeIn 5s ease-in-out, pulse 3s infinite ease-in-out;
+      max-width: 90vw;
+      animation: pulse 3s infinite ease-in-out;
     }
 
     .referral img {
-      width: 64px;
-      height: 64px;
+      width: 96px;
+      height: 96px;
       margin-bottom: 1rem;
       animation: pulse 2s infinite;
     }
 
     .referral h2 {
-      font-size: 2rem;
+      font-size: 1.6rem;
       background: linear-gradient(to right, #a855f7, #9333ea);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -202,7 +175,7 @@
     .referral a {
       background: #a855f7;
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 0.6rem 1.2rem;
       font-weight: 600;
       text-decoration: none;
       border-radius: 12px;
@@ -217,9 +190,9 @@
     }
 
     .footer {
-      margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #555;
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #888;
       padding-bottom: 2rem;
       text-align: center;
       z-index: 1;
@@ -229,13 +202,30 @@
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.05); }
     }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .socials a {
+        font-size: 1.5rem;
+      }
+
+      .referral h2 {
+        font-size: 1.2rem;
+      }
+
+      .referral a {
+        padding: 0.5rem 1rem;
+      }
+    }
   </style>
 </head>
 <body>
   <audio autoplay loop>
     <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_38d9a5b309.mp3" type="audio/mpeg">
   </audio>
-  <div id="clouds"></div>
   <div id="stars"></div>
   <div id="shooting-stars"></div>
   <div id="meteors"></div>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>jdot666</title>
   <link rel="icon" type="image/png" href="drip-logo.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
@@ -17,60 +17,32 @@
 
     html, body {
       height: 100%;
-      overflow: hidden;
-      font-family: 'Inter', sans-serif;
       background: radial-gradient(ellipse at bottom, #1a0033, #0e001a);
-      color: white;
-      cursor: default;
-    }
-
-    @media screen and (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      .referral {
-        margin-top: 2rem;
-        padding: 1rem;
-      }
-
-      .socials a {
-        font-size: 1.4rem;
-      }
-
-      .referral a {
-        font-size: 0.9rem;
-        padding: 0.4rem 1rem;
-      }
-
-      .footer {
-        font-size: 0.65rem;
-      }
-
-      .tagline {
-        font-size: 0.9rem;
-      }
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
     }
 
     .content {
       position: relative;
       z-index: 2;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      animation: fadeIn 1.4s ease-in;
+      padding: 2rem;
+      animation: fadeIn 1s ease-in-out;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       background: linear-gradient(to right, #a855f7, #9333ea);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -79,9 +51,15 @@
     }
 
     .tagline {
-      font-size: 1rem;
-      color: #ccc;
+      font-size: 1.2rem;
       margin-bottom: 2rem;
+      display: inline-block;
+      animation: waveText 2.5s infinite ease-in-out;
+    }
+
+    @keyframes waveText {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
     .socials {
@@ -92,11 +70,16 @@
     }
 
     .socials a {
-      color: #fff;
-      font-size: 1.8rem;
-      transition: 0.3s;
-      text-decoration: none;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.8rem;
+  transition: 0.3s;
+  text-decoration: none;
+  min-width: 80px;
+}
 
     .socials a:hover {
       color: #d946ef;
@@ -118,17 +101,21 @@
       border-radius: 20px;
       backdrop-filter: blur(8px);
       box-shadow: 0 0 20px #9333ea;
-      animation: tilt 6s infinite alternate ease-in-out, pulse 4s infinite ease-in-out;
+      animation: pulse 2.5s infinite ease-in-out;
     }
 
-    @keyframes tilt {
-      0%   { transform: rotateZ(-1deg); }
-      100% { transform: rotateZ(1deg); }
+    .referral img {
+      width: 200px;
+      margin-bottom: 1rem;
+      animation: pulse 2s infinite ease-in-out;
     }
 
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 20px #9333ea; }
-      50% { box-shadow: 0 0 30px #a855f7; }
+    .referral h2 {
+      font-size: 1.6rem;
+      margin: 0.5rem 0;
+      background: linear-gradient(to right, #a855f7, #9333ea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .referral a {
@@ -149,29 +136,35 @@
     }
 
     .footer {
-      position: absolute;
-      bottom: 1rem;
-      width: 100%;
+      margin-top: 4rem;
       text-align: center;
       font-size: 0.75rem;
       color: #888;
-      z-index: 2;
     }
 
-    .particle {
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.03); opacity: 0.9; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Stars + Shooting Stars */
+    #stars, #shooting-stars {
       position: absolute;
-      width: 3px;
-      height: 3px;
-      background: #a855f7;
-      border-radius: 50%;
-      animation: float 10s infinite ease-in-out;
-      opacity: 0.3;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
     }
 
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-50px); }
-      100% { transform: translateY(0); }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(168, 85, 247, 0.8);
+      border-radius: 50%;
+      animation: twinkle 3s infinite ease-in-out;
     }
 
     .shooting-star {
@@ -181,10 +174,15 @@
       background: linear-gradient(90deg, rgba(255,255,255,0.8), transparent);
       opacity: 0;
       transform: rotate(-35deg);
-      animation: shootStar 8s infinite ease-in-out;
+      animation: shoot 8s infinite ease-in-out;
     }
 
-    @keyframes shootStar {
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+
+    @keyframes shoot {
       0% { transform: translateX(100vw) translateY(-100px) rotate(-35deg); opacity: 0; }
       10% { opacity: 1; }
       100% { transform: translateX(-100vw) translateY(100vh) rotate(-35deg); opacity: 0; }
@@ -192,48 +190,48 @@
   </style>
 </head>
 <body>
-  <script>
-    for (let i = 0; i < 60; i++) {
-      let p = document.createElement("div");
-      p.className = "particle";
-      p.style.top = Math.random() * window.innerHeight + "px";
-      p.style.left = Math.random() * window.innerWidth + "px";
-      p.style.animationDelay = (Math.random() * 10) + "s";
-      document.body.appendChild(p);
-    }
-
-    for (let i = 0; i < 10; i++) {
-      let s = document.createElement("div");
-      s.className = "shooting-star";
-      s.style.top = Math.random() * window.innerHeight + "px";
-      s.style.left = Math.random() * window.innerWidth + "px";
-      s.style.animationDelay = (Math.random() * 10) + "s";
-      document.body.appendChild(s);
-    }
-  </script>
+  <div id="stars"></div>
+  <div id="shooting-stars"></div>
 
   <div class="content">
     <h1>@jdot666</h1>
-    <p class="tagline">Follow my socials</p>
+    <div class="tagline">Follow my socials</div>
     <div class="socials">
-      <a href="https://tiktok.com/@jddot666" target="_blank">
-        <i class="fab fa-tiktok"></i>
-        <div class="handle">jddot666</div>
-      </a>
-      <a href="#" onclick="navigator.clipboard.writeText('jddot666'); alert('Discord copied!');">
-        <i class="fab fa-discord"></i>
-        <div class="handle">jddot666</div>
-      </a>
-      <a href="https://youtube.com/@xuhnndottt" target="_blank">
-        <i class="fab fa-youtube"></i>
-        <div class="handle">xuhnndottt</div>
-      </a>
+      <a href="https://tiktok.com/@jddot666"><i class="fab fa-tiktok"></i><div class="handle">jddot666</div></a>
+      <a href="#" onclick="navigator.clipboard.writeText('jddot666'); alert('Discord copied!');"><i class="fab fa-discord"></i><div class="handle">jddot666</div></a>
+      <a href="https://youtube.com/@xuhnndottt"><i class="fab fa-youtube"></i><div class="handle">xuhnndottt</div></a>
     </div>
+
     <div class="referral">
-      <div style="font-size: 1.4rem;">drip or drown.</div>
-      <a href="https://getd.rip/dot" target="_blank">start dripping</a>
+      <img src="drip-logo.png" alt="Drip Logo" />
+      <h2>drip or drown.</h2>
+      <a href="https://getd.rip/dot">start dripping</a>
     </div>
   </div>
+
   <div class="footer">© jddot666 2016–2025. All Rights Reserved.</div>
+
+  <script>
+    const stars = document.getElementById("stars");
+    const shooting = document.getElementById("shooting-stars");
+
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.style.top = Math.random() * 100 + "%";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.animationDuration = (2 + Math.random() * 3) + "s";
+      stars.appendChild(star);
+    }
+
+    for (let i = 0; i < 10; i++) {
+      const shoot = document.createElement("div");
+      shoot.className = "shooting-star";
+      shoot.style.top = Math.random() * -200 + "px";
+      shoot.style.left = Math.random() * window.innerWidth + "px";
+      shoot.style.animationDelay = Math.random() * 10 + "s";
+      shooting.appendChild(shoot);
+    }
+  </script>
 </body>
 </html>

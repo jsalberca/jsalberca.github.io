@@ -4,70 +4,206 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>jdot666</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-+5EDejAYm9UCBjyhcAqWz5fU1MfZ2IuZrMGkD5i6yyj1yRkUP2TK9VXJ0b8kH6r+eKwthNRppZ3OeZbJ2Lssxg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
     body {
       margin: 0;
       padding: 0;
-      background: #0e0e0e;
-      color: #ffffff;
       font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      height: 100vh;
-      text-align: center;
+      color: #ffffff;
+      overflow-x: hidden;
+      position: relative;
+      background: radial-gradient(circle at center, #0e001a, #1a0033);
     }
+
+    #stars, #shooting-stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(168, 85, 247, 0.8);
+      border-radius: 50%;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(168,85,247,1), transparent);
+      opacity: 0;
+      transform: rotate(45deg);
+      animation: shoot 5s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+
+    @keyframes shoot {
+      0% {
+        transform: translateX(-100vw) translateY(0) rotate(45deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(100vw) translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      justify-content: center;
+      padding: 2rem;
+    }
+
     h1 {
       font-size: 3rem;
-      background: linear-gradient(90deg, #a855f7, #8b5cf6);
+      background: linear-gradient(90deg, #d946ef, #9333ea);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 0.5rem;
     }
+
+    p.tagline {
+      font-size: 1.2rem;
+      color: #c9c9c9;
+      margin-bottom: 2rem;
+    }
+
     .socials {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 2rem;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
     }
+
     .socials a {
       color: #fff;
       font-size: 2rem;
-      transition: color 0.2s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      transition: transform 0.2s ease, color 0.2s ease;
       text-decoration: none;
     }
+
     .socials a:hover {
-      color: #a855f7;
+      transform: scale(1.2);
+      color: #d946ef;
     }
+
     .handle {
-      font-size: 1.1rem;
-      margin-top: 0.3rem;
-      color: #999;
+      font-size: 1rem;
+      margin-top: 0.2rem;
+      color: #c0c0c0;
     }
-    .icon {
-      font-size: 3rem;
+
+    .referral {
+      margin-top: 3rem;
+      background: rgba(17, 17, 17, 0.9);
+      padding: 2rem 3rem;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.7);
+      text-align: center;
+      animation: pulse 4s infinite;
+    }
+
+    .referral h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      background: linear-gradient(90deg, #d946ef, #9333ea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .referral a {
+      color: #a855f7;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    .referral a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 25px rgba(168, 85, 247, 0.7);
+      }
+      50% {
+        box-shadow: 0 0 50px rgba(168, 85, 247, 1);
+      }
     }
   </style>
 </head>
 <body>
-  <h1>@jdot666</h1>
-  <div class="socials">
-    <a href="https://www.instagram.com/jddot666/" target="_blank">
-      <i class="fab fa-instagram icon"></i>
-      <div class="handle">jddot666</div>
-    </a>
-    <a href="#" onclick="navigator.clipboard.writeText('jddot666'); alert('Discord copied!');">
-      <i class="fab fa-discord icon"></i>
-      <div class="handle">jddot666</div>
-    </a>
-    <a href="https://www.youtube.com/@xuhnndottt" target="_blank">
-      <i class="fab fa-youtube icon"></i>
-      <div class="handle">xuhnndottt</div>
-    </a>
+  <div id="stars"></div>
+  <div id="shooting-stars"></div>
+  <div class="content">
+    <h1>@jdot666</h1>
+    <p class="tagline">Stay connected with the drip</p>
+    <div class="socials">
+      <a href="https://www.tiktok.com/@jddot666" target="_blank">
+        <i class="fab fa-tiktok"></i>
+        <div class="handle">jddot666</div>
+      </a>
+      <a href="#" onclick="navigator.clipboard.writeText('jddot666'); alert('Discord copied!');">
+        <i class="fab fa-discord"></i>
+        <div class="handle">jddot666</div>
+      </a>
+      <a href="https://www.youtube.com/@xuhnndottt" target="_blank">
+        <i class="fab fa-youtube"></i>
+        <div class="handle">xuhnndottt</div>
+      </a>
+    </div>
+    <div class="referral">
+      <h2>GET DRIP LITE</h2>
+      <a href="https://getd.rip/dot" target="_blank">https://getd.rip/dot</a>
+    </div>
   </div>
+
+  <script>
+    const starsContainer = document.getElementById("stars");
+    const shootingStarsContainer = document.getElementById("shooting-stars");
+
+    for (let i = 0; i < 150; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.top = Math.random() * 100 + "%";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.animationDuration = (2 + Math.random() * 3) + "s";
+      starsContainer.appendChild(star);
+    }
+
+    for (let i = 0; i < 10; i++) {
+      const shoot = document.createElement("div");
+      shoot.classList.add("shooting-star");
+      shoot.style.top = Math.random() * 100 + "%";
+      shoot.style.left = Math.random() * 100 + "%";
+      shoot.style.animationDelay = (Math.random() * 10) + "s";
+      shoot.style.animationDuration = (4 + Math.random() * 4) + "s";
+      shootingStarsContainer.appendChild(shoot);
+    }
+  </script>
 </body>
 </html>

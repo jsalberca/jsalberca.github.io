@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>jdot666</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="drip-logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
@@ -158,8 +158,8 @@
     }
 
     .referral img {
-      width: 96px;
-      height: 96px;
+      width: 128px;
+      height: 128px;
       margin-bottom: 1rem;
       animation: pulse 2s infinite;
     }
@@ -222,77 +222,3 @@
     }
   </style>
 </head>
-<body>
-  <audio autoplay loop>
-    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_38d9a5b309.mp3" type="audio/mpeg">
-  </audio>
-  <div id="stars"></div>
-  <div id="shooting-stars"></div>
-  <div id="meteors"></div>
-  <div class="content">
-    <h1>@jdot666</h1>
-    <p class="tagline">Follow my socials</p>
-    <div class="socials">
-      <a href="https://www.tiktok.com/@jddot666" target="_blank">
-        <i class="fab fa-tiktok"></i>
-        <div class="handle">jddot666</div>
-      </a>
-      <a href="#" onclick="navigator.clipboard.writeText('jddot666'); alert('Discord copied!');">
-        <i class="fab fa-discord"></i>
-        <div class="handle">jddot666</div>
-      </a>
-      <a href="https://www.youtube.com/@xuhnndottt" target="_blank">
-        <i class="fab fa-youtube"></i>
-        <div class="handle">xuhnndottt</div>
-      </a>
-    </div>
-
-    <div class="referral">
-      <img src="drip-logo.png" alt="Drip Logo" />
-      <h2>drip or drown.</h2>
-      <a href="https://getd.rip/dot" target="_blank" onclick="trackReferralClick()">start dripping</a>
-    </div>
-  </div>
-  <div class="footer">
-    © jddot666 2016–2025. All Rights Reserved.
-  </div>
-
-  <script>
-    const starsContainer = document.getElementById("stars");
-    const shootingStarsContainer = document.getElementById("shooting-stars");
-    const meteorsContainer = document.getElementById("meteors");
-
-    for (let i = 0; i < 150; i++) {
-      const star = document.createElement("div");
-      star.classList.add("star");
-      star.style.top = Math.random() * 100 + "%";
-      star.style.left = Math.random() * 100 + "%";
-      star.style.animationDuration = (2 + Math.random() * 3) + "s";
-      starsContainer.appendChild(star);
-    }
-
-    for (let i = 0; i < 10; i++) {
-      const shoot = document.createElement("div");
-      shoot.classList.add("shooting-star");
-      shoot.style.top = Math.random() * -200 + "px";
-      shoot.style.left = Math.random() * window.innerWidth + "px";
-      shoot.style.animationDelay = (Math.random() * 10) + "s";
-      shoot.style.animationDuration = (4 + Math.random() * 4) + "s";
-      shootingStarsContainer.appendChild(shoot);
-    }
-
-    for (let i = 0; i < 6; i++) {
-      const meteor = document.createElement("div");
-      meteor.classList.add("meteor");
-      meteor.style.top = Math.random() * -100 + "px";
-      meteor.style.left = Math.random() * window.innerWidth + "px";
-      meteor.style.animationDelay = Math.random() * 8 + "s";
-      meteorsContainer.appendChild(meteor);
-    }
-
-    function trackReferralClick() {
-      console.log('Referral link clicked');
-    }
-  </script>
-</body>
-</html>

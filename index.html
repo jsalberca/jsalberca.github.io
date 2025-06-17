@@ -289,6 +289,13 @@
   .footer { font-size: 0.65rem; }
   .referral, .discord-invite { padding: 1rem; margin: 2rem 1rem; }
 }
+  @keyframes fadePop {
+    0% { opacity: 0; transform: scale(0.95) translateY(10px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .fade-in {
+    animation: fadePop 0.8s ease-out forwards;
+  }
 </style>
 </head>
 <body>
@@ -324,9 +331,9 @@
     </div>
   </div>
 
-  <div class="youtube-wrapper" style="text-align:center; margin-top: 5rem;">
+  <div class="youtube-wrapper" style="text-align:center; margin-top: 1.5rem;">
   <h2 style="font-family: 'Manrope', sans-serif; font-size: 2.2rem; font-weight: 700; margin-bottom: 2rem; letter-spacing: 2px; background: linear-gradient(to right, #a855f7, #9333ea); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px #9333ea; animation: glowPop 2s infinite ease-in-out;">watch my videos</h2>
-  <div class="youtube-section" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; animation: fadeIn 1s ease-in-out;">
+  <div class="youtube-section fade-in" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 3rem; animation: fadePop 1s ease-in-out;">
   <div style="text-align: center;">
     <a href="https://youtu.be/A1U3byQeFYE" target="_blank" rel="noopener noreferrer" style="transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 12px; overflow: hidden; box-shadow: 0 0 20px #9333ea; display: inline-block;">
       <img src="https://img.youtube.com/vi/A1U3byQeFYE/hqdefault.jpg" alt="YouTube Video 1" style="width: 320px; height: auto; display: block;">

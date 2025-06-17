@@ -268,6 +268,27 @@
     100% { transform: translateX(0%); }
   }
 
+  @keyframes flicker {
+    0%, 100% { opacity: 1; text-shadow: 0 0 10px #9333ea, 0 0 20px #a855f7; }
+    50% { opacity: 0.85; text-shadow: 0 0 5px #9333ea; }
+  }
+  @keyframes glowPop {
+    0%, 100% { text-shadow: 0 0 12px #9333ea, 0 0 24px #a855f7; transform: scale(1); }
+    50% { text-shadow: 0 0 20px #a855f7, 0 0 40px #9333ea; transform: scale(1.03); }
+  }
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  .tagline { font-size: 1rem; }
+  .socials a { font-size: 1.4rem; }
+  .referral img { width: 140px; }
+  .referral h2 { font-size: 1.3rem; }
+  .referral a, .discord-invite a { font-size: 0.9rem; padding: 0.5rem 1rem; }
+  .youtube-section img { width: 100%; max-width: 320px; }
+  .youtube-wrapper h2 { font-size: 1.5rem; }
+  .youtube-section div { max-width: 90vw; }
+  .footer { font-size: 0.65rem; }
+  .referral, .discord-invite { padding: 1rem; margin: 2rem 1rem; }
+}
 </style>
 </head>
 <body>
@@ -303,7 +324,30 @@
     </div>
   </div>
 
-  <div class="footer">© jddot666 2016–2025. All Rights Reserved.</div>
+  <div class="youtube-wrapper" style="text-align:center; margin-top: 5rem;">
+  <h2 style="font-family: 'Manrope', sans-serif; font-size: 2.2rem; font-weight: 700; margin-bottom: 2rem; letter-spacing: 2px; background: linear-gradient(to right, #a855f7, #9333ea); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px #9333ea; animation: glowPop 2s infinite ease-in-out;">watch my videos</h2>
+  <div class="youtube-section" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; animation: fadeIn 1s ease-in-out;">
+  <div style="text-align: center;">
+    <a href="https://youtu.be/A1U3byQeFYE" target="_blank" rel="noopener noreferrer" style="transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 12px; overflow: hidden; box-shadow: 0 0 20px #9333ea; display: inline-block;">
+      <img src="https://img.youtube.com/vi/A1U3byQeFYE/hqdefault.jpg" alt="YouTube Video 1" style="width: 320px; height: auto; display: block;">
+      <div style="margin-top: 0.5rem; font-size: 1rem; font-weight: 600; color: #ccc;">drip lite on 1.21</div>
+    </a>
+  </div>
+  <div style="text-align: center;">
+    <a href="https://youtu.be/37QneTpqXIM" target="_blank" rel="noopener noreferrer" style="transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 12px; overflow: hidden; box-shadow: 0 0 20px #9333ea; display: inline-block;">
+      <img src="https://img.youtube.com/vi/37QneTpqXIM/hqdefault.jpg" alt="YouTube Video 2" style="width: 320px; height: auto; display: block;">
+      <div style="margin-top: 0.5rem; font-size: 1rem; font-weight: 600; color: #ccc;">drip lite on mmc</div>
+    </a>
+  </div>
+  <div style="text-align: center;">
+    <a href="https://youtu.be/kQNWX3HFXZ4" target="_blank" rel="noopener noreferrer" style="transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 12px; overflow: hidden; box-shadow: 0 0 20px #9333ea; display: inline-block;">
+      <img src="https://img.youtube.com/vi/kQNWX3HFXZ4/hqdefault.jpg" alt="YouTube Video 3" style="width: 320px; height: auto; display: block;">
+      <div style="margin-top: 0.5rem; font-size: 1rem; font-weight: 600; color: #ccc;">asmr with drip lite</div>
+    </a>
+  </div>
+</div>
+</div>
+<div class="footer">© jddot666 2016–2025. All Rights Reserved.</div>
 
   <script>
     const stars = document.getElementById("stars");
@@ -327,48 +371,6 @@
       shooting.appendChild(shoot);
     }
   </script>
-  <script>
-  const trails = [];
-  for (let i = 0; i < 12; i++) {
-    const t = document.createElement("div");
-    t.className = "trail-dot";
-    Object.assign(t.style, {
-      position: "fixed",
-      width: "8px",
-      height: "8px",
-      borderRadius: "50%",
-      background: "#a855f7",
-      opacity: "0.6",
-      pointerEvents: "none",
-      zIndex: "9999",
-      filter: "blur(2px)"
-    });
-    document.body.appendChild(t);
-    trails.push(t);
-  }
-
-  let current = 0;
-  window.addEventListener("mousemove", e => {
-    const dot = trails[current];
-    dot.style.left = `${e.pageX - 4}px`;
-    dot.style.top = `${e.pageY - 4}px`;
-    dot.style.display = "block";
-    dot.style.opacity = "0.6";
-    current = (current + 1) % trails.length;
-  });
-
-  window.addEventListener("mouseleave", () => {
-    trails.forEach(dot => {
-      dot.style.display = "none";
-    });
-  });
-
-  window.addEventListener("mouseenter", () => {
-    trails.forEach(dot => {
-      dot.style.display = "block";
-      dot.style.opacity = "0.6";
-    });
-  });
-</script>
+  
 </body>
 </html>

@@ -206,6 +206,24 @@
     50% { opacity: 1; transform: scale(1.05); }
     100% { opacity: 0.9; transform: scale(1); }
   }
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2c1b2f;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f5d3ff88;
+  border-radius: 6px;
+  border: 3px solid #2c1b2f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f5d3ff;
+}
 </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pn8IwE+NRvb3npzz1odddulLDfiJZvGf6t2r2ZRhdy4X9gdEkew0cGQKDFHjLCYB1sJmwvYl1PM9M9cENtUcPQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -228,7 +246,7 @@
 
 <div class="products">
   <div class="product">
-    <img src="images/hoodie1.jpg" alt="Fluffy Fleece Hoodie" />
+    <img src="hoodie1.jpg" alt="Fluffy Fleece Hoodie" />
     <div class="product-details">
       <h3>Fluffy Fleece Zip Hoodie</h3>
       <p>Ultimate cozy drip. Lined with ultra-soft fleece to keep you warm while flexing clean.</p>
@@ -236,7 +254,7 @@
     </div>
   </div>
   <div class="product">
-    <img src="images/sweater.jpg" alt="Sweater" />
+    <img src="sweater.jpg" alt="Sweater" />
     <div class="product-details">
       <h3>Cloud-Knit Sweater</h3>
       <p>Cloud-soft texture with pastel vibes. Styled for layering or solo flex.</p>
@@ -244,7 +262,7 @@
     </div>
   </div>
   <div class="product">
-    <img src="images/white-tee.jpg" alt="White Tee" />
+    <img src="white-tee.jpg" alt="White Tee" />
     <div class="product-details">
       <h3>Crisp White Tee</h3>
       <p>Classic white done right. Smooth, durable cotton for daily use or styled up.</p>
